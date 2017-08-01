@@ -446,3 +446,9 @@ func (i FrameSideInfo) String() string {
 func (f *Frame) Reader() io.Reader {
 	return bytes.NewReader(f.buf)
 }
+
+func (f *Frame) Bytes() []byte {
+	len := f.Size()
+
+	return f.buf[:len]
+}
